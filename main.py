@@ -10,19 +10,22 @@ import time
 import os
 import json
 import pytz
+import logging
 
 app = Flask("data_writer")
 token = "h36wa8NITjKnTxXb0DXP-zdMzTSPdVZWcJUgvo9PjS0-vLk3ny0mAQYcXKuacu2Yz8xoUyP_DvInDXEV99Wwew=="
 org = "test"
 url = "http://localhost:8086"
 write_client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
-bucket = "test"
+bucket = "test2"
 
 write_api = write_client.write_api(write_options=SYNCHRONOUS)
 
+logger = logging.getLogger(__name__)
+
 @app.route('/sierra_data', methods=['POST'])
 def write_data_to_db():
-  print(request.json)
+  logger.debug(request.json)
   data = json.loads(request.json)
   point_dict = {
     "measurement": "telemetry",

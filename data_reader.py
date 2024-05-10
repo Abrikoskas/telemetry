@@ -4,6 +4,9 @@ from rpm_reader import get_rpm
 
 mpu_enabled = True
 
+
+logger = logging.getLogger(__name__)
+
 try:
     mpu = acc_module.mpu()
 except Exception as e:
@@ -29,7 +32,7 @@ for data in gps_recieve.gps():
     data_json = json.dumps(data)
     try:
         a = requests.post('http://localhost:5000/sierra_data', json = data_json)
-        print(a)
+        logger.debug(a)
     except Exception as e:
         pass
-    print(data)
+    logger.debug(data)
