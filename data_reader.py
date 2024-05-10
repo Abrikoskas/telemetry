@@ -1,6 +1,7 @@
 import acc_module
 import gps_recieve
 from rpm_reader import get_rpm
+import logging
 
 mpu_enabled = True
 
