@@ -12,6 +12,7 @@ url = 'http://http://192.168.1.80:5000/sierra_data'
 
 
 logger = logging.getLogger(__name__)
+logging.setLevel(logging.DEBUG)
 
 try:
     import acc_module
