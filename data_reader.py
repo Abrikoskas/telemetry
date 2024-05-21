@@ -50,7 +50,6 @@ for data in gps_recieve.gps():
     try:
         a = requests.post(url, json = data_json)
         logger.debug(a)
-        print(a)
     except Exception as e:
         logger.exception(e, exc_info=True)
     logger.debug(data)

@@ -37,10 +37,9 @@ def write_data_to_db():
   date = data.get('date_time')
   date = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%f").replace(tzinfo=pytz.UTC)
 
-  coordinates = data.get('coordinates', [0,0,0])
+  coordinates = data.get('coordinates', [0,0])
   fields['x'] = coordinates[0]
   fields['y'] = coordinates[1]
-  fields['z'] = coordinates[2]
 
   fields['throttle'] = data.get('rpm', 0)
 
