@@ -37,3 +37,6 @@ def gps() -> dict:
         if lng != '0' or speed != '0':
             data = {'coordinates': [float(lat), float(lng)], 'gps_speed': float(speed)}
             yield data
+        else:
+            data = {'coordinates': [float(0), float(0)], 'gps_speed': float(0)}
+            yield data

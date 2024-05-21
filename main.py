@@ -61,6 +61,6 @@ if __name__ == '__main__':
   try:
     app.run(debug=True, host='localhost', port=5000)
   except Exception as e:
-    print(e)
+    logger.exception(e)
   finally:
     write_client.close()
