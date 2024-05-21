@@ -18,14 +18,14 @@ try:
     import acc_module
     mpu = acc_module.Mpu()
 except Exception as e:
-    logger.exception(e, exc_info=True)
+    logger.warning(e, exc_info=True)
     mpu_enabled = False
     logger.debug('mpu_enabled = False')
 
 try:
     from rpm_reader import get_rpm
 except Exception as e:
-    logger.exception(e, exc_info=True)
+    logger.warning(e, exc_info=True)
     rpm_enabled = False
     logger.debug('rpm_enabled = False')
 
