@@ -19,12 +19,14 @@ try:
 except Exception as e:
     logger.exception(e, exc_info=True)
     mpu_enabled = False
+    logger.debug('mpu_enabled = False')
 
 try:
     from rpm_reader import get_rpm
 except Exception as e:
     logger.exception(e, exc_info=True)
     rpm_enabled = False
+    logger.debug('rpm_enabled = False')
 
 # On each data piece from gps get other data from sensors
 for data in gps_recieve.gps():
