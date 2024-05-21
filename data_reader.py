@@ -31,7 +31,6 @@ except Exception as e:
 
 # On each data piece from gps get other data from sensors
 for data in gps_recieve.gps():
-    print('i am here')
     # Read data from mpu mpdule if it is enabled
     if mpu_enabled:
         temp = mpu.get_temp()

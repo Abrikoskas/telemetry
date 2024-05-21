@@ -1,7 +1,11 @@
 import socket
+import logging
 import requests
 import json
 from datetime import datetime
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 # Set socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -18,7 +22,7 @@ def gps() -> dict:
         msg_received = sock.recv(128)
         msg_received = msg_received.decode("UTF-8")
         msg = msg_received.split(',')
-        print(msg_received)
+        logger.debug(msg_received)
         lng = '0'
         lat = '0'
         speed = '0'
