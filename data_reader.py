@@ -7,8 +7,8 @@ import json
 mpu_enabled = True
 rpm_enabled = True
 
-# url = 'http://localhost:5000/sierra_data'
-url = 'http://http://192.168.1.80:5000/sierra_data'
+url = 'http://localhost:5000/sierra_data'
+# url = 'http://http://192.168.1.80:5000/sierra_data'
 
 
 logger = logging.getLogger(__name__)
