@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 try:
     import acc_module
-    mpu = acc_module.mpu()
+    mpu = acc_module.Mpu()
 except Exception as e:
     logger.exception(e, exc_info=True)
     mpu_enabled = False
