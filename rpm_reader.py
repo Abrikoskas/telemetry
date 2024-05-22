@@ -14,4 +14,6 @@ def get_rpm():
                 rpm = float(ser.readline().decode('utf-8').rstrip())
             except UnicodeDecodeError as e:
                 pass
+            finally:
+                rpm = 0
             return rpm
