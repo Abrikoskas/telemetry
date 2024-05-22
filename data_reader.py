@@ -8,8 +8,8 @@ import time
 mpu_enabled = True
 rpm_enabled = True
 
-import acc_module
-mpu = acc_module.Mpu()
+# import acc_module
+# mpu = acc_module.Mpu()
 
 url = 'http://localhost:5000/sierra_data'
 # url = 'http://http://192.168.1.80:5000/sierra_data'
@@ -28,13 +28,13 @@ except Exception as e:
 # On each data piece from gps get other data from sensors
 for data in gps_recieve.gps():
     # Read data from mpu mpdule if it is enabled
-    if mpu_enabled:
-        temp = mpu.get_temp()
-        time.sleep(0.1)
-        accel = mpu.get_accel()
-        time.sleep(0.1)
-        gyro = mpu.get_gyro()
-        data['acceleration'] = accel
+    # if mpu_enabled:
+    #     temp = mpu.get_temp()
+    #     time.sleep(0.1)
+    #     accel = mpu.get_accel()
+    #     time.sleep(0.1)
+    #     gyro = mpu.get_gyro()
+    #     data['acceleration'] = accel
 
     if rpm_enabled == True:
         # Read data from arduino
