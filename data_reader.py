@@ -8,20 +8,15 @@ import time
 mpu_enabled = True
 rpm_enabled = True
 
+import acc_module
+mpu = acc_module.Mpu()
+
 url = 'http://localhost:5000/sierra_data'
 # url = 'http://http://192.168.1.80:5000/sierra_data'
 
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
-
-try:
-    import acc_module
-    mpu = acc_module.Mpu()
-except Exception as e:
-    logger.warning(e, exc_info=True)
-    mpu_enabled = False
-    logger.debug('mpu_enabled = False')
 
 try:
     from rpm_reader import get_rpm
