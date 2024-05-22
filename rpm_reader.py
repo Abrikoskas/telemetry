@@ -10,5 +10,8 @@ def get_rpm():
         if time() - start > 0.5:
             return 0
         if ser.in_waiting > 0:
-            rpm = float(ser.readline().decode('utf-8').rstrip())
+            try:
+                rpm = float(ser.readline().decode('utf-8').rstrip())
+            except UnicodeDecodeError as e:
+                pass
             return rpm
