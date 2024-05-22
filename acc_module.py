@@ -279,13 +279,14 @@ class Mpu():
         self.mpu = mpu6050(0x68)
 
     def get_temp(self):
-        return mpu.get_temp()
+        return self.mpu.get_temp()
 
     def get_accel(self):
-        return mpu.get_accel_data()
+        return self.mpu.get_accel_data()
 
-    def get_gyre(self):
-        return mpu.get_gyro_data()
+    def get_gyro(self):
+        return self.mpu.get_gyro_data()
+
 
 if __name__ == "__main__":
     while True:

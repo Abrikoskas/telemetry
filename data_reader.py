@@ -3,6 +3,7 @@ import gps_recieve
 import requests
 import logging
 import json
+import time
 
 mpu_enabled = True
 rpm_enabled = True
@@ -34,9 +35,11 @@ for data in gps_recieve.gps():
     # Read data from mpu mpdule if it is enabled
     if mpu_enabled:
         temp = mpu.get_temp()
+        time.sleep(0.1)
         accel = mpu.get_accel()
-        gyro = mpu.get_gyro_data()
-        data['acceleration'] = accel_data
+        time.sleep(0.1)
+        gyro = mpu.get_gyro()
+        data['acceleration'] = accel
 
     if rpm_enabled == True:
         # Read data from arduino
