@@ -40,6 +40,7 @@ for data in gps_recieve.gps():
         # Read data from arduino
         rpm = get_rpm()
         data['rpm'] = rpm
+        print(rpm)
 
     # Set timestamp for datapiece
     data["date_time"] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%f")
