@@ -1,5 +1,9 @@
 import serial
 from time import time
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
 ser.reset_input_buffer()
@@ -13,7 +17,5 @@ def get_rpm():
             try:
                 rpm = float(ser.readline().decode('utf-8').rstrip())
             except UnicodeDecodeError as e:
-                pass
-            finally:
-                rpm = 0
+                logger.debug(e, exc_info=True)
             return rpm
