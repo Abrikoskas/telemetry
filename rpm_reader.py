@@ -16,7 +16,6 @@ def get_rpm():
         if ser.in_waiting > 0:
             try:
                 rpm = int(float(ser.readline().decode('utf-8').rstrip()))
-                print(type(rpm))
                 return rpm
             except UnicodeDecodeError as e:
                 logger.debug(e, exc_info=True)
