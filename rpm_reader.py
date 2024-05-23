@@ -11,7 +11,7 @@ ser.reset_input_buffer()
 def get_rpm():
     start = time()
     while True:
-        if time() - start > 0.5:
+        if time() - start > 2:
             return 0
         if ser.in_waiting > 0:
             try:
@@ -20,3 +20,4 @@ def get_rpm():
                 return rpm
             except UnicodeDecodeError as e:
                 logger.debug(e, exc_info=True)
+                return 0
